@@ -34,6 +34,7 @@ class segmentation(qtw.QWidget):
         self.imag1=self.Gray_img
         self.draw(self.original_image,self.Gray_img)
         self.binarizing_image()
+        self.clear(self.segmentation)
         self.size=self.Gray_img.shape
         self.num_kernals_rows=int((self.size[0]-self.size[0]%self.kernal_size)/self.kernal_size)
         self.num_kernals_colums=int((self.size[1]-self.size[1]%self.kernal_size)/self.kernal_size)

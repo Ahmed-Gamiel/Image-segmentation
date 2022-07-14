@@ -145,7 +145,7 @@ font: 75 italic 12pt &quot;Ubuntu Condensed&quot;;</string>
          <item>
           <widget class="QLabel" name="label_4">
            <property name="text">
-            <string>Thrshold Value</string>
+            <string>Thrshold Value for binarization</string>
            </property>
           </widget>
          </item>
