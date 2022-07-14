@@ -106,6 +106,20 @@ font: 75 italic 12pt &quot;Ubuntu Condensed&quot;;</string>
        <item row="1" column="1">
         <layout class="QVBoxLayout" name="equalized_histogram_layout">
          <item>
+          <widget class="QPushButton" name="segmentation_btn">
+           <property name="cursor">
+            <cursorShape>PointingHandCursor</cursorShape>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">background-color: rgb(92, 53, 102);
+</string>
+           </property>
+           <property name="text">
+            <string>Apply</string>
+           </property>
+          </widget>
+         </item>
+         <item>
           <widget class="QLabel" name="thershold_value">
            <property name="text">
             <string>100                                                                                 </string>
@@ -118,7 +132,7 @@ font: 75 italic 12pt &quot;Ubuntu Condensed&quot;;</string>
             <number>255</number>
            </property>
            <property name="singleStep">
-            <number>5</number>
+            <number>15</number>
            </property>
            <property name="value">
             <number>100</number>
@@ -132,20 +146,6 @@ font: 75 italic 12pt &quot;Ubuntu Condensed&quot;;</string>
           <widget class="QLabel" name="label_4">
            <property name="text">
             <string>Thrshold Value</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="segmentation_btn">
-           <property name="cursor">
-            <cursorShape>PointingHandCursor</cursorShape>
-           </property>
-           <property name="styleSheet">
-            <string notr="true">background-color: rgb(92, 53, 102);
-</string>
-           </property>
-           <property name="text">
-            <string>Apply</string>
            </property>
           </widget>
          </item>

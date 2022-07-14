@@ -12,16 +12,14 @@ class segmentation(qtw.QWidget):
     def __init__(self):
         super().__init__()
 
-        uic.loadUi("src/ui/segmentation1.ui", self)
+        uic.loadUi("src/ui/segmentation.ui", self)
         self.original_image = Viewer()
         self.image_layout.addWidget(self.original_image)
         self.Binary_image = Viewer()
         self.Binary_image_layout.addWidget(self.Binary_image)
         self.segmentation = Viewer()
         self.segmentation_layout.addWidget(self.segmentation)
-        self.heatmap = Viewer()
-        self.heatmap_layout.addWidget(self.heatmap)
-        self.kernal_size=5
+        self.kernal_size=3
         self.local_means=[]
         self.local_varience=[]
         self.local_mean_var=[]
@@ -55,9 +53,8 @@ class segmentation(qtw.QWidget):
         self.Gray_img=self.Gray_img_binary
 
     def segmentate(self):
-        self.thrshold_2=self.thrshold2.value()/10
-        self.thrshold_1=self.thrshold1.value()/10
-        self.radius = self.thrshold_r.value()/100
+        self.thrshold_1=5/10
+        self.radius = 150/100
         self.local_mean_std()
         self.iteration(self.local_means[self.center],self.local_varience[self.center])
         print(self.local_means[self.center],self.local_varience[self.center])
@@ -103,7 +100,20 @@ class segmentation(qtw.QWidget):
         if(((mean-mean0)**2+(var-var0))<=self.thrshold_1**2):
             return
         else:
+            if (mean0-mean)>0:
+                for i in self.valid:
+                   self.local_means[i]=self.local_means[i]-(mean0-mean) 
+            else:
+                for i in self.valid:
+                   self.local_means[i]=self.local_means[i]+(mean-mean0)   
+            if (var0-var)>0:
+                for i in self.valid:
+                   self.local_varience[i]=self.local_varience[i]-(var0-var) 
+            else:
+                for i in self.valid:
+                   self.local_varience[i]=self.local_varience[i]+(var-var0)                
             self.iteration(mean,var)
+
     
     def reverse(self):
         for i in self.valid:
