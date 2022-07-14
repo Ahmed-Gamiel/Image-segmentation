@@ -13,7 +13,7 @@
 
 ------
 ### Image_segmenting
-![Composer](docs/segmentation.gif)
+![Composer](docs/segmentation_demo.gif)
 
 
 ---
